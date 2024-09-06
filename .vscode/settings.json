@@ -1,0 +1,15 @@
+{
+  "files.associations": {
+    "tad_listalinear.h": "c",
+    "lista.h": "c",
+    "14_buscarvertice.h": "c",
+    "7_buscaprofundidade.h": "c",
+    "2_incluirvertice.h": "c",
+    "pilha.h": "c",
+    "5_excluirvertice.h": "c",
+    "11_inverterlista.h": "c",
+    "13_ehhamiltoniano.h": "c",
+    "16_ehbipartido.h": "c",
+    "17_getallcaminhos.h": "c"
+  }
+}
