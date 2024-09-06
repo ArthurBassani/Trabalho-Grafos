@@ -31,6 +31,7 @@ void main(){
         printf("  12  - Eh Conexo \n");
         printf("  13  - Eh Bipartido \n");
         printf("  14  - Encontra todos os caminhos (entre dois vertices) \n");
+        printf("  15  - Colorir Grafo \n");
         printf("17 - Sair \n");
 
         scanf ("%d", &opcao);
@@ -38,18 +39,19 @@ void main(){
         switch (opcao){
 
          case 0 :
+            incluirVertice(grafo, &vertices[0], comparaVertice);
             incluirVertice(grafo, &vertices[1], comparaVertice);
             incluirVertice(grafo, &vertices[2], comparaVertice);
-            incluirVertice(grafo, &vertices[0], comparaVertice);
             incluirVertice(grafo, &vertices[3], comparaVertice);
             incluirVertice(grafo, &vertices[4], comparaVertice);
-            // incluirVertice(grafo, &vertices[5], comparaVertice);
+            incluirVertice(grafo, &vertices[5], comparaVertice);
 
             incluirAresta(grafo, &vertices[0], &vertices[1], comparaVertice);
-            incluirAresta(grafo, &vertices[1], &vertices[3], comparaVertice);
-            incluirAresta(grafo, &vertices[1], &vertices[4], comparaVertice);
-            incluirAresta(grafo, &vertices[3], &vertices[2], comparaVertice);
-            incluirAresta(grafo, &vertices[2], &vertices[4], comparaVertice);
+            incluirAresta(grafo, &vertices[0], &vertices[3], comparaVertice);
+            incluirAresta(grafo, &vertices[1], &vertices[2], comparaVertice);
+            incluirAresta(grafo, &vertices[2], &vertices[3], comparaVertice);
+            incluirAresta(grafo, &vertices[3], &vertices[4], comparaVertice);
+            incluirAresta(grafo, &vertices[4], &vertices[0], comparaVertice);
 
             mostrarGrafo(grafo, imprimeVertice);
             break;
@@ -200,6 +202,12 @@ void main(){
 
                 getch();
             break;
+            
+            case 15:
+                int k = colorirGrafo(grafo,comparaVertice,alocaInfoVertice);
+                printf("Total de cores utilizadas: %d\n",k);
+                getch();
+                break;
             
         }
 

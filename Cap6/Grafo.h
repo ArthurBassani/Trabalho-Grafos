@@ -13,6 +13,8 @@
 
 #include "Operacoes/1_criarGrafo.h"
 
+#include "Utils.h"
+
 #include "Operacoes/2_incluirVertice.h"
 
 #include "Operacoes/3_incluirAresta.h"
@@ -43,7 +45,6 @@
 
 #include "Operacoes/16_ehBipartido.h"
 
-
-#include "Utils.h"
+#include "Operacoes/18_colorirGrafo.h"
 
 #endif

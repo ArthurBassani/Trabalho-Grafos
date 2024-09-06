@@ -100,8 +100,29 @@ void imprimeVerticeSemAdjacencias(void *info1){
 void* alocaInfoVertice(void *info){
    pVertice pv = (pVertice) malloc(sizeof(Vertice));
    pv->info = alocaInfoInt(((pVertice)info)->info);
+   pv->grau = ((pVertice)info)->grau;
    return pv;
 }
 
+/* ----------------------------- */
+int comparaGrauVertices(void* i1,void* i2){
+    pVertice v1 = (pVertice)i1;
+    pVertice v2 = (pVertice)i2;
+    if(v1->grau == v2->grau) return 0;
+    return 1;
+}
+/* ----------------------------- */
+
+void imprimeGrafoColorido(pDGrafo g){
+    if(g->listaVertices->primeiro == NULL) return;
+    pNoh n = g->listaVertices->primeiro;
+    pVertice v;
+    while (n != NULL)
+    {
+        v = n->info;
+        printf("Vertice: %d - Cor: %d\n",*(int*)v->info,v->grau);
+        n = n->prox;
+    }
+}
 /* ----------------------------- */
 #endif /* UTILS_H */

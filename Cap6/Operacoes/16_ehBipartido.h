@@ -1,20 +1,6 @@
 #ifndef EH_BIPARTIDO_H
 #define EH_BIPARTIDO_H
-#include "../Utils.h"
-struct conjunto
-{
-    int n;
-    pDLista listaVertices;
-};
-typedef struct conjunto Conjunto;
-typedef struct conjunto* pConjunto;
 
-pConjunto criaConjunto(int n){
-    pConjunto c = (pConjunto)malloc(sizeof(Conjunto));
-    c->n = n;
-    c->listaVertices = criarLista();
-    return c;
-}
 int ehBipartido(pDGrafo grafo,FuncaoComparacao fc,FuncaoAlocacao fa){ 
     if (grafo->listaVertices->quantidade == 1) return 0;
     
