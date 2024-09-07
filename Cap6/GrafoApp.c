@@ -32,6 +32,7 @@ void main(){
         printf("  13  - Eh Bipartido \n");
         printf("  14  - Encontra todos os caminhos (entre dois vertices) \n");
         printf("  15  - Colorir Grafo \n");
+        printf("  16  - Emparelhar Grafo \n");
         printf("17 - Sair \n");
 
         scanf ("%d", &opcao);
@@ -39,19 +40,18 @@ void main(){
         switch (opcao){
 
          case 0 :
-            incluirVertice(grafo, &vertices[0], comparaVertice);
             incluirVertice(grafo, &vertices[1], comparaVertice);
-            incluirVertice(grafo, &vertices[2], comparaVertice);
+            incluirVertice(grafo, &vertices[0], comparaVertice);
             incluirVertice(grafo, &vertices[3], comparaVertice);
-            incluirVertice(grafo, &vertices[4], comparaVertice);
-            incluirVertice(grafo, &vertices[5], comparaVertice);
+            incluirVertice(grafo, &vertices[2], comparaVertice);
+            // incluirVertice(grafo, &vertices[4], comparaVertice);
+            // incluirVertice(grafo, &vertices[5], comparaVertice);
 
+            incluirAresta(grafo, &vertices[1], &vertices[2], comparaVertice);
             incluirAresta(grafo, &vertices[0], &vertices[1], comparaVertice);
             incluirAresta(grafo, &vertices[0], &vertices[3], comparaVertice);
-            incluirAresta(grafo, &vertices[1], &vertices[2], comparaVertice);
-            incluirAresta(grafo, &vertices[2], &vertices[3], comparaVertice);
-            incluirAresta(grafo, &vertices[3], &vertices[4], comparaVertice);
-            incluirAresta(grafo, &vertices[4], &vertices[0], comparaVertice);
+            incluirAresta(grafo, &vertices[0], &vertices[2], comparaVertice);
+            incluirAresta(grafo, &vertices[3], &vertices[1], comparaVertice);
 
             mostrarGrafo(grafo, imprimeVertice);
             break;
@@ -206,6 +206,48 @@ void main(){
             case 15:
                 int k = colorirGrafo(grafo,comparaVertice,alocaInfoVertice);
                 printf("Total de cores utilizadas: %d\n",k);
+                getch();
+                break;
+
+            case 16:
+                pDLista pd = emparelhamentoGrafo(grafo,comparaVertice);
+                if(pd == NULL){
+                    printf("Grafo nao emparelhado:\n");
+                    getch();
+                    break;
+                }else{
+                    printf("Grafo emparelhado:\n");
+                }
+                pNoh n = pd->primeiro;
+                pVertice v;
+                int cont = 0;
+
+                
+                printf("Arestas:\n");
+                while (n != NULL)
+                {
+                    v = n->info;
+                    switch (cont)
+                    {
+                    case 0:
+                        printf("[ %d ->",*(int*)(v->info));
+                        break;
+                    
+                    case 1:
+                        printf(" %d  ]\n",*(int*)(v->info));
+                        break;
+                    
+                    default:
+                        cont = 0;
+                        continue;
+                    }
+
+                    cont++;
+                    n = n->prox;
+                }
+                
+
+
                 getch();
                 break;
             

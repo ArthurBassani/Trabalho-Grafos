@@ -10,6 +10,8 @@
     "11_inverterlista.h": "c",
     "13_ehhamiltoniano.h": "c",
     "16_ehbipartido.h": "c",
-    "17_getallcaminhos.h": "c"
+    "17_getallcaminhos.h": "c",
+    "utils.h": "c",
+    "18_colorirgrafo.h": "c"
   }
 }

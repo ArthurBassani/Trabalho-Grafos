@@ -47,4 +47,6 @@
 
 #include "Operacoes/18_colorirGrafo.h"
 
+#include "Operacoes/19_emparelhamentoGrafo.h"
+
 #endif
